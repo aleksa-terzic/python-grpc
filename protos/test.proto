@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+enum Unit {
+    KILOMETERS = 0;
+    MILES = 1;
+}
+
+message UnitRequest {
+    float input = 1;
+    Unit category = 2;
+}
+
+message UnitResponse{
+    float result = 1;
+    string unit = 2;
+}
+
+service ConverterService{
+    rpc convertUnits(UnitRequest) returns (UnitResponse);
+}
